@@ -15,7 +15,7 @@ function init() {
             }
         })
     });
-    let items = document.querySelectorAll('.item');
+    let items = document.querySelectorAll('.animate');
     items.forEach(function (item) {
         observer.observe(item);
     })

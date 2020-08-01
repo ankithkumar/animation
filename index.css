@@ -37,8 +37,8 @@ body {
 }
 
 .item {
-    width: 46%;
-    margin-right: 2%;
+    width: calc(50% - 50px);
+    margin-right: 60px;
     margin-bottom: 10px;
     margin-top: 10px;
     height: 400px;
@@ -48,6 +48,12 @@ body {
     background-repeat: no-repeat;
     box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
 }
+
+.item:nth-child(2n) {
+    width: calc(50% - 50px);
+    margin-right: 0;
+}
+
 
 .item-1 {
     background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1309&q=80');
@@ -87,19 +93,21 @@ body {
     position: relative;
 }
 
-.item:nth-child(2n) {
-    margin-right: 0;
+.visible-class {
+    opacity: 1;
+    transition-timing-function: cubic-bezier(.47, 0, .745, .715);
+    transition-duration: .6s;
+    transform: matrix(1, 0, 0, 1, 25, 0);
+    transition-property: transform;
 }
 
-.visible-class {
-    height: 400px;
-    opacity: 1;
-    transform: translate(0%, 0%);
-    transition: transform linear 0.5s, opacity linear 0.3s;
+.visible-class:nth-child(2n) {
+    transform: matrix(1, 0, 0, 1, -25, 0);
 }
 
 .hidden-class {
     opacity: 0;
-    transform: translate(0%, 50px);
-    transition: transform linear 0.5s, opacity linear 0.3s;
+    transform: translateX(0);
+    transition-duration: .6s;
+    transition-property: opacity, transform
 }
